@@ -61,7 +61,7 @@ namespace WPLConverter.IO
                     var newPath = Path.GetFullPath(cleanedLine);
                     trackList.Add(new Track(newPath));
                 }
-                catch (ArgumentException e)
+                catch (ArgumentException)
                 {
                     Console.WriteLine($"Path has invalid character: " + cleanedLine);
                     invalidTracks.Add(cleanedLine);
