@@ -2,18 +2,10 @@
 
 namespace WPLConverter.DataClasses
 {
-    internal struct Track
+    public struct Track(string filePath)
     {
-        public string FileName;
-        public string FolderPath;
-        public string FullPath;
-
-        public Track(string filePath)
-        {
-            FileName = Path.GetFileName(filePath);
-            FolderPath = Path.GetDirectoryName(filePath);
-
-            FullPath = Path.GetFullPath(filePath);
-        }
+        public readonly string FileName = Path.GetFileName(filePath);
+        public readonly string FolderPath = Path.GetDirectoryName(filePath);
+        public readonly string FullPath = Path.GetFullPath(filePath);
     }
 }

@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
 using WPLConverter.DataClasses;
 using WPLConverter.IO;
+using WPLConverter.Lib;
+using WPLConverter.Properties;
 
 namespace WPLConverter
 {
     public partial class Converter : Form
     {
         private Playlist _playlist;
-        
+
         public Converter()
         {
             InitializeComponent();
@@ -37,70 +37,75 @@ namespace WPLConverter
 
         private void LoadFromFile(string filePath)
         {
-            var type = (FileType)Enum.Parse(typeof(FileType), Path.GetExtension(filePath).Remove(0, 1), true);
+            var type = Util.GetFileType(filePath);
+
+            IReaderWriter io;
             switch (type)
             {
                 case FileType.WPL:
-                    _playlist = Reader.FromWplPlaylist(filePath);
+                    io = new WPLReaderWriter(Util.GetEncoding());
                     break;
                 case FileType.M3U:
                 case FileType.M3U8:
-                    _playlist = Reader.FromM3UPlaylist(filePath);
+                    io = new M3UReaderWriter(Util.GetEncoding());
                     break;
                 default:
-                    MessageBox.Show("The file you selected is unsupported. Please try a diffrent file.", "Unsupported file", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        LocalizationHelper.GetString("MessageBox.FileUnsupported"),
+                        LocalizationHelper.GetString("MessageBox.FileUnsupported.Title"),
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                     return;
             }
 
+            _playlist = io.ReadFromFile(filePath);
             LoadIntoListView(_playlist);
 
-            Form.ActiveForm.Text = "WPLConverter - " + filePath;
+            ActiveForm!.Text = @"WPLConverter - " + filePath;
         }
 
+        #region Save and Open Files
 
         private void SaveAsTsmi_Click(object sender, EventArgs e)
         {
             if (_playlist == null)
             {
-                MessageBox.Show("Please load a playlist using the Open command before saving.", "No data loaded",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    LocalizationHelper.GetString("MessageBox.LoadPlaylistToSave"),
+                    LocalizationHelper.GetString("MessageBox.LoadPlaylistToSave.Title"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
-            var filterStr = SaveFileDiag.Filter;
-            var filter = new List<string>(filterStr.Split('|'));
-
-            // Remove every other entry from filter 
-            var pos = 0;
-            for (var i = 0; i < filter.Count; i += 2, pos++)
-            {
-                filter[pos] = filter[i];
-            }
-            filter.RemoveRange(pos, filter.Count - pos);
-
             SaveFileDiag.FileName = _playlist.Title + ".wpl";
             SaveFileDiag.InitialDirectory = Path.GetDirectoryName(_playlist.FilePath);
-            
-            if (SaveFileDiag.ShowDialog() != DialogResult.OK) return;
 
-            switch (SaveFileDiag.FilterIndex)
+            if (SaveFileDiag.ShowDialog() != DialogResult.OK)
+                return;
+
+            IReaderWriter io = SaveFileDiag.FilterIndex switch
             {
-                case 1:
-                    Writer.WriteToWplPlaylist(_playlist, SaveFileDiag.FileName);
-                    break;
-                case 2:
-                case 3:
-                    Writer.WriteToM3UPlaylist(_playlist, SaveFileDiag.FileName);
-                    break;
-            }
+                1 => new WPLReaderWriter(Util.GetEncoding()),
+                2 or 3 => new M3UReaderWriter(Util.GetEncoding()),
+                _ => throw new ArgumentOutOfRangeException("SaveFileDialog.FilterIndex"),
+            };
+
+            io.SaveToFile(_playlist, SaveFileDiag.FileName);
         }
 
         private void OpenTsmi_Click(object sender, EventArgs e)
         {
-            if (OpenFileDiag.ShowDialog() != DialogResult.OK) return;
+            if (OpenFileDiag.ShowDialog() != DialogResult.OK)
+                return;
             LoadFromFile(OpenFileDiag.FileName);
         }
+
+        #endregion
+
+        #region Other UI bindings
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
@@ -109,42 +114,36 @@ namespace WPLConverter
 
         private void FullpathTsmi_CheckedChanged(object sender, EventArgs e)
         {
-            Writer.WriteFullPaths = FullpathTsmi.Checked;
+            Settings.Default.WriteFullPaths = FullpathTsmi.Checked;
         }
 
         private void FilenameTsmi_CheckedChanged(object sender, EventArgs e)
         {
-            Writer.FileNameAsPlaylistName = FilenameTsmi.Checked;
+            Settings.Default.FileNameAsPlaylistName = FilenameTsmi.Checked;
         }
 
         private void TrackInfoTsmi_CheckedChanged(object sender, EventArgs e)
         {
-            Writer.WriteTrackInfo = TrackInfoTsmi.Checked;
+            Settings.Default.WriteFakeTrackInfo = TrackInfoTsmi.Checked;
         }
 
         private void EncodingTscb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (EncodingTscb.SelectedIndex)
+            Settings.Default.Encoding = EncodingTscb.SelectedIndex switch
             {
-                case 0:
-                    Writer.Encoding = Encoding.UTF8;
-                    break;
-                case 1:
-                    Writer.Encoding = Encoding.Unicode;
-                    break;
-                case 2:
-                    Writer.Encoding = Encoding.UTF32;
-                    break;
-                case 3:
-                    Writer.Encoding = Encoding.ASCII;
-                    break;
-
-            }
+                0 => "UTF8",
+                1 => "UTF16",
+                2 => "UTF32",
+                3 => "ASCII",
+                _ => Settings.Default.Encoding,
+            };
         }
 
         private void URLEscapeTsmi_CheckedChanged(object sender, EventArgs e)
         {
-            Writer.URLEscape = URLEscapeTsmi.Checked;
+            Settings.Default.URLEscape = URLEscapeTsmi.Checked;
         }
+
+        #endregion
     }
 }

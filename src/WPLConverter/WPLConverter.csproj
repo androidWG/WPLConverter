@@ -107,16 +107,25 @@
     <Compile Include="Converter.Designer.cs">
       <DependentUpon>Converter.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO\Reader.cs" />
-    <Compile Include="IO\Writer.cs" />
+    <Compile Include="IO\M3UReaderWriter.cs" />
+    <Compile Include="IO\ReaderWriter.cs" />
     <Compile Include="DataClasses\FileType.cs" />
     <Compile Include="DataClasses\Playlist.cs" />
     <Compile Include="DataClasses\Track.cs" />
+    <Compile Include="IO\WPLReaderWriter.cs" />
+    <Compile Include="Lib\Exceptions.cs" />
+    <Compile Include="Lib\LocalizationHelper.cs" />
     <Compile Include="Lib\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Converter.pt-br.resx">
+      <DependentUpon>Converter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Converter.resx">
       <DependentUpon>Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.pt-br.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,6 +159,7 @@
     <Content Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ID3" Version="0.6.0" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

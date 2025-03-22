@@ -69,5 +69,17 @@ namespace WPLConverter.Properties {
                 this["WriteFullPaths"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("UTF8")]
+        public string Encoding {
+            get {
+                return ((string)(this["Encoding"]));
+            }
+            set {
+                this["Encoding"] = value;
+            }
+        }
     }
 }

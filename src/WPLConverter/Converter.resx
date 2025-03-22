@@ -5333,4 +5333,16 @@ track's filename as the display title and - since we can't read track length - 0
         /////////////////////////////////////////////////////////////w==
 </value>
   </data>
+  <data name="MessageBox.LoadPlaylistToSave" xml:space="preserve">
+    <value>Please load a playlist using the Open command before saving as.</value>
+  </data>
+  <data name="MessageBox.LoadPlaylistToSave.Title" xml:space="preserve">
+    <value>No data loaded</value>
+  </data>
+  <data name="MessageBox.FileUnsupported" xml:space="preserve">
+    <value>The file you selected is unsupported. Please try a diffrent file.</value>
+  </data>
+  <data name="MessageBox.FileUnsupported.Title" xml:space="preserve">
+    <value>Unsupported file</value>
+  </data>
 </root>
