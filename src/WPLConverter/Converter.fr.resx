@@ -1,0 +1,129 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Menu.File" xml:space="preserve">
+        <value>&amp;Fichier</value>
+    </data>
+    <data name="Menu.Options" xml:space="preserve">
+        <value>Options</value>
+    </data>
+    <data name="Menu.Help" xml:space="preserve">
+        <value>&amp;Aide</value>
+    </data>
+    <data name="Menu.SaveAs" xml:space="preserve">
+        <value>&amp;Enregistrer sous...</value>
+    </data>
+    <data name="Menu.Open" xml:space="preserve">
+        <value>&amp;Ouvrir...</value>
+    </data>
+    <data name="Refresh" xml:space="preserve">
+        <value>Actualiser</value>
+    </data>
+    <data name="ListView.FolderHeader" xml:space="preserve">
+        <value>Emplacement</value>
+    </data>
+    <data name="ListView.NameHeader" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+    <data name="ListView.ValidHeader" xml:space="preserve">
+        <value>Valide</value>
+    </data>
+    <data name="LoadedPlaylistLabel" xml:space="preserve">
+        <value>Fichier de liste de lecture chargé :</value>
+    </data>
+    <data name="Menu.M3UOnly" xml:space="preserve">
+        <value>Fichiers M3U(8) seulement</value>
+    </data>
+    <data name="Menu.WPLOnly" xml:space="preserve">
+        <value>Fichiers WPL seulement</value>
+    </data>
+    <data name="MessageBox.FileUnsupported" xml:space="preserve">
+        <value>Le fichier que vous avez sélectionné n'est pas pris en charge. Veuillez essayer un autre fichier.</value>
+    </data>
+    <data name="MessageBox.FileUnsupported.Title" xml:space="preserve">
+        <value>Fichiers non pris en charge</value>
+    </data>
+    <data name="MessageBox.LoadPlaylistToSave" xml:space="preserve">
+        <value>Veuillez charger une liste de lecture à l'aide de la commande Ouvrir avant de l'enregistrer sous.</value>
+    </data>
+    <data name="MessageBox.LoadPlaylistToSave.Title" xml:space="preserve">
+        <value>Pas de données chargées</value>
+    </data>
+    <data name="OpenDialog.Filter" xml:space="preserve">
+        <value>Tous les fichiers pris en charge|*.m3u;*.m3u8;*.wpl|Fichiers URL MP3 (*.m3u, *.m3u8)|*.m3u;*.m3u8|Fichiers de listes de lecture Windows Media Player (*.wpl)|*.wpl|Tous les fichiers (*.*)|*.*</value>
+    </data>
+    <data name="OpenDialog.Title" xml:space="preserve">
+        <value>Ouvrir un fichier de liste de lecture</value>
+    </data>
+    <data name="SaveDialog.Title" xml:space="preserve">
+        <value>Enregistrer le fichier de la liste de lecture</value>
+    </data>
+    <data name="SaveDialog.Filter" xml:space="preserve">
+        <value>Fichier de liste de lecture Windows Media Player|*.wpl|Fichier URL MP3 (*.m3u)|*.m3u|Fichier URL MP3UTF-8 (*.m3u8)|*.m3u8</value>
+    </data>
+    <data name="TrackInfo" xml:space="preserve">
+        <value>Écrire le nom du fichier comme information sur la chanson</value>
+    </data>
+    <data name="TrackInfo.ToolTip" xml:space="preserve">
+        <value>Les fichiers M3U(8) contiennent des métadonnées 
+supplémentaires pour chaque piste, contenant normalement 
+la durée de la chanson et un « titre d'affichage ». Comme 
+WPLConverter ne peut pas lire les métadonnées des pistes, 
+il n'en inclut normalement aucune, mais vous pouvez cocher 
+cette option pour inclure le nom de fichier de la piste 
+comme titre d'affichage et - puisque nous ne pouvons pas 
+lire la longueur de la piste - 0 longueur.</value>
+    </data>
+    <data name="URLEscape" xml:space="preserve">
+        <value>Utiliser l'encodage URL pour les chemins d'accès</value>
+    </data>
+    <data name="URLEscape.ToolTip" xml:space="preserve">
+        <value>Certains programmes peuvent s'attendre à ce que les fichiers M3U(8) soient encodés en URL dans les chemins d'accès. Cochez cette case pour activer l'encodage URL.</value>
+    </data>
+    <data name="WriteFullPath" xml:space="preserve">
+        <value>Écrire les chemins d'accès complets</value>
+    </data>
+    <data name="WriteFulPath.ToolTip" xml:space="preserve">
+        <value>Les fichiers M3U et WPL utilisent généralement des chemins 
+d'accès aux chansons relatifs à l'emplacement du fichier, 
+mais les deux supportent les chemins d'accès complets. 
+Cochez cette case pour forcer WPLConverter à toujours 
+écrire des chemins complets.</value>
+    </data>
+    <data name="DefaultEndocing" xml:space="preserve">
+        <value>UTF-8 (par défaut)</value>
+    </data>
+    <data name="EncodingOverride" xml:space="preserve">
+        <value>Remplacer l'encodage</value>
+    </data>
+    <data name="EncodingOverride.ToolTip" xml:space="preserve">
+        <value>Remplace l'encodage utilisé pour les fichiers M3U(8). 
+Normalement, M3U8 est uniquement UTF-8 alors que M3U 
+peut avoir n'importe quel encodage. WPLConverter utilise 
+UTF-8 par défaut pour les deux, mais vous pouvez 
+modifier ce paramètre ici.</value>
+    </data>
+    <data name="FileNameTitle" xml:space="preserve">
+        <value>Utiliser le nom de fichier comme nom de liste de lecture</value>
+    </data>
+    <data name="FileNameTitle.ToolTip" xml:space="preserve">
+        <value>WPL prend en charge un "titre de la liste de lecture" 
+distinct du nom du fichier (affiché comme le nom de la 
+liste de lecture sur Windows Media Player). Lors du 
+chargement des listes de lecture, WPLConverter utilise 
+soit le nom de fichier pour les fichiers M3U(8), soit 
+l'attribut "title" pour les fichiers WPL. Cochez cette 
+case pour utiliser le nom du fichier que vous 
+enregistrez comme attribut « title ».</value>
+    </data>
+</root>

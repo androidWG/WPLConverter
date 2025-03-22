@@ -126,21 +126,6 @@
   <metadata name="SaveFileDiag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>4, 18</value>
   </metadata>
-  <data name="FilenameTsmi.ToolTipText" xml:space="preserve">
-    <value>WPL supports a "playlist title" separate from the file name
-(shown as the playlist name on Windows Media Player).
-When loading playlists, WPLConverter either uses the
-filename for M3U(8) files, or the "title" attribute on WPL files.
-Check this to instead use the filename of the file you're saving
-as the "title" attribute.
-</value>
-  </data>
-  <data name="TrackInfoTsmi.ToolTipText" xml:space="preserve">
-    <value>M3U(8) files support extra metadata for each track, normally containing
-the track's length and a "display title". Since WPLConverter can't read track metadata
-it normally doesn't include any, but you can check this option to include the
-track's filename as the display title and - since we can't read track length - 0 length.</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5340,9 +5325,109 @@ track's filename as the display title and - since we can't read track length - 0
     <value>No data loaded</value>
   </data>
   <data name="MessageBox.FileUnsupported" xml:space="preserve">
-    <value>The file you selected is unsupported. Please try a diffrent file.</value>
+    <value>The file you selected is unsupported. Please try a different file.</value>
   </data>
   <data name="MessageBox.FileUnsupported.Title" xml:space="preserve">
     <value>Unsupported file</value>
+  </data>
+  <data name="Menu.File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Menu.Open" xml:space="preserve">
+    <value>&amp;Open...</value>
+  </data>
+  <data name="Menu.SaveAs" xml:space="preserve">
+    <value>&amp;Save As...</value>
+  </data>
+  <data name="Menu.Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Menu.Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="TrackInfo.ToolTip" xml:space="preserve">
+    <value>M3U(8) files support extra metadata for each track, normally containing
+the track's length and a "display title". Since WPLConverter can't read track metadata
+it normally doesn't include any, but you can check this option to include the
+track's filename as the display title and - since we can't read track length - 0 length.</value>
+  </data>
+  <data name="FileNameTitle.ToolTip" xml:space="preserve">
+    <value>WPL supports a "playlist title" separate from the file name
+(shown as the playlist name on Windows Media Player).
+When loading playlists, WPLConverter either uses the
+filename for M3U(8) files, or the "title" attribute on WPL files.
+Check this to instead use the filename of the file you're saving
+as the "title" attribute.</value>
+  </data>
+  <data name="TrackInfo" xml:space="preserve">
+    <value>Write filename as track info</value>
+  </data>
+  <data name="FileNameTitle" xml:space="preserve">
+    <value>Use new filename as playlist name</value>
+  </data>
+  <data name="WriteFullPath" xml:space="preserve">
+    <value>Write full paths</value>
+  </data>
+  <data name="WriteFulPath.ToolTip" xml:space="preserve">
+    <value>M3U and WPL files generally use paths for tracks relative
+ to the file's location, but both support full paths. 
+Check to force WPLConverter to always write full paths.</value>
+  </data>
+  <data name="SaveDialog.Title" xml:space="preserve">
+    <value>Save playlist file</value>
+  </data>
+  <data name="LoadedPlaylistLabel" xml:space="preserve">
+    <value>Loaded playlist file:</value>
+  </data>
+  <data name="ListView.FolderHeader" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="ListView.NameHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ListView.ValidHeader" xml:space="preserve">
+    <value>Valid</value>
+  </data>
+  <data name="Menu.M3UOnly" xml:space="preserve">
+    <value>M3U(8) only</value>
+  </data>
+  <data name="Menu.WPLOnly" xml:space="preserve">
+    <value>WPL only</value>
+  </data>
+  <data name="EncodingOverride" xml:space="preserve">
+    <value>Override encoding</value>
+  </data>
+  <data name="EncodingOverride.ToolTip" xml:space="preserve">
+    <value>Overrides the encoding used for M3U(8) files. Normally, 
+M3U8 is UTF-8 only while M3U ncan be any encoding. 
+WPLConverter uses UTF-8 by default on both, but you can 
+override this setting here.</value>
+  </data>
+  <data name="URLEscape" xml:space="preserve">
+    <value>URL escape paths</value>
+  </data>
+  <data name="URLEscape.ToolTip" xml:space="preserve">
+    <value>Some programs may expect M3U(8) files with URL encoding on paths. Check this to enable URL escaping.</value>
+  </data>
+  <data name="DefaultEndocing" xml:space="preserve">
+    <value>UTF-8 (default)</value>
+  </data>
+  <data name="OpenDialog.Title" xml:space="preserve">
+    <value>Open playlist file</value>
+  </data>
+  <data name="OpenDialog.Filter" xml:space="preserve">
+    <value>All supported files|*.m3u;*.m3u8;*.wpl|MP3 URL files (*.m3u, *.m3u8)|*.m3u;*.m3u8|Windows Media Player playlist files (*.wpl)|*.wpl|All files (*.*)|*.*</value>
+  </data>
+  <data name="SaveDialog.Filter" xml:space="preserve">
+    <value>Windows Media Player playlist file|*.wpl|MP3 URL file (*.m3u)|*.m3u|UTF-8 MP3 URL file (*.m3u8)|*.m3u8</value>
+  </data>
+  <data name="FilenameTsmi.ToolTipText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TrackInfoTsmi.ToolTipText" xml:space="preserve">
+    <value />
   </data>
 </root>

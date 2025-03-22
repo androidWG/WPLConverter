@@ -1,0 +1,62 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="MessageBox.LoadPlaylistToSave.Title" xml:space="preserve">
+        <value>Nenhum dado carregado</value>
+    </data>
+    <data name="MessageBox.LoadPlaylistToSave" xml:space="preserve">
+        <value>Abra um arquivo de playlist usando o comando Abrir antes de salvar como.</value>
+    </data>
+    <data name="Refresh" xml:space="preserve">
+        <value>Atualizar</value>
+    </data>
+    <data name="Menu.File" xml:space="preserve">
+        <value>&amp;Arquivo</value>
+    </data>
+    <data name="Menu.Help" xml:space="preserve">
+        <value>Ajuda</value>
+    </data>
+    <data name="Menu.Open" xml:space="preserve">
+        <value>&amp;Abrir</value>
+    </data>
+    <data name="Menu.Options" xml:space="preserve">
+        <value>&amp;Opções</value>
+    </data>
+    <data name="Menu.SaveAs" xml:space="preserve">
+        <value>&amp;Salvar como...</value>
+    </data>
+    <data name="TrackInfo.ToolTip" xml:space="preserve">
+        <value>Os arquivos M3U(8) suportam metadados adicionais para 
+cada faixa, normalmente contendo a duração da faixa e 
+um “título de exibição”. Como o WPLConverter não pode 
+ler os metadados da faixa, ele normalmente não os inclui, 
+mas você pode marcar essa opção para incluir o nome do 
+arquivo da faixa como título de exibição e - como não 
+podemos ler a duração da faixa - 0 duração.</value>
+    </data>
+    <data name="FileNameTitle.ToolTip" xml:space="preserve">
+        <value>Arquivos WPL suportam um "título de lista de reprodução"
+diferente do nome do arquivo (mostrado como o nome da
+lista de reprodução no Windows Media Player). Ao carregar
+listas de reprodução, o WPLConverter usa o nome de arquivo
+para arquivos M3U(8) ou o atributo "title" em arquivos WPL. 
+Marque essa opção para usar o nome do arquivo que está 
+sendo salvo como o atributo "title".</value>
+    </data>
+    <data name="FilenameTsmi.ToolTipText" xml:space="preserve">
+        <value />
+    </data>
+    <data name="TrackInfoTsmi.ToolTipText" xml:space="preserve">
+        <value />
+    </data>
+</root>

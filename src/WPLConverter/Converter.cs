@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using WPLConverter.DataClasses;
@@ -11,6 +12,8 @@ namespace WPLConverter
     public partial class Converter : Form
     {
         private Playlist _playlist;
+
+        private readonly ComponentResourceManager _resources = new(typeof(Converter));
 
         public Converter()
         {
@@ -51,8 +54,8 @@ namespace WPLConverter
                     break;
                 default:
                     MessageBox.Show(
-                        LocalizationHelper.GetString("MessageBox.FileUnsupported"),
-                        LocalizationHelper.GetString("MessageBox.FileUnsupported.Title"),
+                        _resources.GetString("MessageBox.FileUnsupported"),
+                        _resources.GetString("MessageBox.FileUnsupported.Title"),
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                     );
@@ -72,8 +75,8 @@ namespace WPLConverter
             if (_playlist == null)
             {
                 MessageBox.Show(
-                    LocalizationHelper.GetString("MessageBox.LoadPlaylistToSave"),
-                    LocalizationHelper.GetString("MessageBox.LoadPlaylistToSave.Title"),
+                    _resources.GetString("MessageBox.LoadPlaylistToSave"),
+                    _resources.GetString("MessageBox.LoadPlaylistToSave.Title"),
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );

@@ -118,11 +118,17 @@
     <Compile Include="Lib\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Converter.fr.resx">
+      <DependentUpon>Converter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Converter.pt-br.resx">
       <DependentUpon>Converter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Converter.resx">
       <DependentUpon>Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.fr.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.pt-br.resx">
       <DependentUpon>Resources.resx</DependentUpon>

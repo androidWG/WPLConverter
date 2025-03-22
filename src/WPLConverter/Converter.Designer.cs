@@ -60,9 +60,8 @@
             // 
             // OpenFileDiag
             // 
-            this.OpenFileDiag.Filter = "All supported files|*.m3u;*.m3u8;*.wpl|MP3 URL files (*.m3u, *.m3u8)|*.m3u;*.m3u8" +
-    "|Windows Media Player playlist files (*.wpl)|*.wpl|All files (*.*)|*.*";
-            this.OpenFileDiag.Title = "Open Playlist File";
+            this.OpenFileDiag.Filter = resources.GetString("OpenDialog.Filter");
+            this.OpenFileDiag.Title = resources.GetString("OpenDialog.Title");
             // 
             // TrackLst
             // 
@@ -83,17 +82,17 @@
             // 
             // NameHeader
             // 
-            this.NameHeader.Text = "Name";
-            this.NameHeader.Width = 253;
+            this.NameHeader.Text = resources.GetString("ListView.NameHeader");
+            this.NameHeader.Width = 260;
             // 
             // FolderHeader
             // 
-            this.FolderHeader.Text = "Folder";
-            this.FolderHeader.Width = 208;
+            this.FolderHeader.Text = resources.GetString("ListView.FolderHeader");
+            this.FolderHeader.Width = 210;
             // 
             // ValidHeader
             // 
-            this.ValidHeader.Text = "Valid";
+            this.ValidHeader.Text = resources.GetString("ListView.ValidHeader");
             // 
             // FilenameLbl
             // 
@@ -111,7 +110,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Loaded:";
+            this.label3.Text = resources.GetString("LoadedPlaylistLabel");
             // 
             // menuStrip1
             // 
@@ -123,7 +122,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(562, 24);
             this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Text = "Menu";
             // 
             // FileTsmi
             // 
@@ -132,20 +131,20 @@
             this.SaveAsTsmi});
             this.FileTsmi.Name = "FileTsmi";
             this.FileTsmi.Size = new System.Drawing.Size(37, 20);
-            this.FileTsmi.Text = "File";
+            this.FileTsmi.Text = resources.GetString("Menu.File");
             // 
             // OpenTsmi
             // 
             this.OpenTsmi.Name = "OpenTsmi";
             this.OpenTsmi.Size = new System.Drawing.Size(180, 22);
-            this.OpenTsmi.Text = "&Open...";
+            this.OpenTsmi.Text = resources.GetString("Menu.Open");
             this.OpenTsmi.Click += new System.EventHandler(this.OpenTsmi_Click);
             // 
             // SaveAsTsmi
             // 
             this.SaveAsTsmi.Name = "SaveAsTsmi";
             this.SaveAsTsmi.Size = new System.Drawing.Size(180, 22);
-            this.SaveAsTsmi.Text = "&Save As...";
+            this.SaveAsTsmi.Text = resources.GetString("Menu.SaveAs");
             this.SaveAsTsmi.Click += new System.EventHandler(this.SaveAsTsmi_Click);
             // 
             // HelpTsmi
@@ -155,7 +154,7 @@
             this.aboutToolStripMenuItem});
             this.HelpTsmi.Name = "HelpTsmi";
             this.HelpTsmi.Size = new System.Drawing.Size(44, 20);
-            this.HelpTsmi.Text = "&Help";
+            this.HelpTsmi.Text = resources.GetString("Menu.Help");
             // 
             // gitHubToolStripMenuItem
             // 
@@ -177,15 +176,14 @@
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(75, 23);
             this.RefreshBtn.TabIndex = 11;
-            this.RefreshBtn.Text = "Refresh";
+            this.RefreshBtn.Text = resources.GetString("Refresh");
             this.RefreshBtn.UseVisualStyleBackColor = true;
             this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // SaveFileDiag
             // 
-            this.SaveFileDiag.Filter = "Windows Media Player playlist file|*.wpl|MP3 URL file (*.m3u)|*.m3u|UTF-8 MP3 URL" +
-    " file (*.m3u8)|*.m3u8";
-            this.SaveFileDiag.Title = "Save Playlist File";
+            this.SaveFileDiag.Filter = resources.GetString("SaveDialog.Filter");
+            this.SaveFileDiag.Title = resources.GetString("SaveDialog.Title");
             // 
             // optionsToolStripMenuItem
             // 
@@ -201,14 +199,15 @@
             this.URLEscapeTsmi});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Text = resources.GetString("Menu.Options");
             // 
             // FullpathTsmi
             // 
             this.FullpathTsmi.CheckOnClick = true;
             this.FullpathTsmi.Name = "FullpathTsmi";
             this.FullpathTsmi.Size = new System.Drawing.Size(254, 22);
-            this.FullpathTsmi.Text = "Write full paths";
+            this.FullpathTsmi.Text = resources.GetString("WriteFullPath");
+            this.TrackInfoTsmi.ToolTipText = resources.GetString("WriteFullPath.ToolTip");
             this.FullpathTsmi.CheckedChanged += new System.EventHandler(this.FullpathTsmi_CheckedChanged);
             // 
             // FilenameTsmi
@@ -216,8 +215,8 @@
             this.FilenameTsmi.CheckOnClick = true;
             this.FilenameTsmi.Name = "FilenameTsmi";
             this.FilenameTsmi.Size = new System.Drawing.Size(254, 22);
-            this.FilenameTsmi.Text = "Use new filename as playlist name";
-            this.FilenameTsmi.ToolTipText = resources.GetString("FilenameTsmi.ToolTipText");
+            this.FilenameTsmi.Text = resources.GetString("FileNameTitle");
+            this.FilenameTsmi.ToolTipText = resources.GetString("FileNameTitle.ToolTip");
             this.FilenameTsmi.CheckedChanged += new System.EventHandler(this.FilenameTsmi_CheckedChanged);
             // 
             // TrackInfoTsmi
@@ -225,8 +224,8 @@
             this.TrackInfoTsmi.CheckOnClick = true;
             this.TrackInfoTsmi.Name = "TrackInfoTsmi";
             this.TrackInfoTsmi.Size = new System.Drawing.Size(254, 22);
-            this.TrackInfoTsmi.Text = "Write filename as track info";
-            this.TrackInfoTsmi.ToolTipText = resources.GetString("TrackInfoTsmi.ToolTipText");
+            this.TrackInfoTsmi.Text = resources.GetString("TrackInfo");
+            this.TrackInfoTsmi.ToolTipText = resources.GetString("TrackInfo.ToolTip");
             this.TrackInfoTsmi.CheckedChanged += new System.EventHandler(this.TrackInfoTsmi_CheckedChanged);
             // 
             // toolStripMenuItem1
@@ -234,14 +233,14 @@
             this.toolStripMenuItem1.Enabled = false;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
-            this.toolStripMenuItem1.Text = "WPL only";
+            this.toolStripMenuItem1.Text = resources.GetString("Menu.WPLOnly");
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Enabled = false;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(254, 22);
-            this.toolStripMenuItem2.Text = "M3U only";
+            this.toolStripMenuItem2.Text = resources.GetString("Menu.M3UOnly");
             // 
             // toolStripSeparator2
             // 
@@ -256,16 +255,14 @@
             // EncodingTscb
             // 
             this.EncodingTscb.Items.AddRange(new object[] {
-            "UTF-8 (default)",
+            resources.GetString("DefaultEndocing"),
             "UTF-16",
             "UTF-32",
             "ASCII"});
             this.EncodingTscb.Name = "EncodingTscb";
-            this.EncodingTscb.Size = new System.Drawing.Size(121, 23);
-            this.EncodingTscb.Text = "Override encoding";
-            this.EncodingTscb.ToolTipText = "Overrides the encoding used for M3U(8) files. Normally, M3U8 is UTF-8 only while " +
-    "M3U \r\ncan be any encoding. WPLConverter uses UTF-8 by default on both, but you c" +
-    "an override \r\nthis setting here.";
+            this.EncodingTscb.Size = new System.Drawing.Size(140, 23);
+            this.EncodingTscb.Text = resources.GetString("EncodingOverride");
+            this.EncodingTscb.ToolTipText = resources.GetString("EncodingOverride.ToolTip");
             this.EncodingTscb.SelectedIndexChanged += new System.EventHandler(this.EncodingTscb_SelectedIndexChanged);
             // 
             // URLEscapeTsmi
@@ -273,9 +270,8 @@
             this.URLEscapeTsmi.CheckOnClick = true;
             this.URLEscapeTsmi.Name = "URLEscapeTsmi";
             this.URLEscapeTsmi.Size = new System.Drawing.Size(254, 22);
-            this.URLEscapeTsmi.Text = "URL escape paths";
-            this.URLEscapeTsmi.ToolTipText = "Some prgrams may expect M3U(8) files with URL encoding on paths.\r\nCheck this to e" +
-    "nable URL escaping.";
+            this.URLEscapeTsmi.Text = resources.GetString("URLEscape");
+            this.URLEscapeTsmi.ToolTipText = resources.GetString("URLEscape.ToolTip");
             this.URLEscapeTsmi.CheckedChanged += new System.EventHandler(this.URLEscapeTsmi_CheckedChanged);
             // 
             // Converter
