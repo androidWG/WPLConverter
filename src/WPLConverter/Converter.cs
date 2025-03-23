@@ -29,11 +29,25 @@ namespace WPLConverter
                 var isValid = File.Exists(track.FullPath);
 
                 var item = new ListViewItem(track.FileName);
-                item.SubItems.Add(track.FolderPath);
                 item.SubItems.Add(isValid ? "\u221a" : "X");
+                if (track.Tag != null)
+                {
+                    item.SubItems.Add(track.Tag.Title);
+                    item.SubItems.Add(track.Tag.Artists);
+                }
+                else
+                {
+                    item.SubItems.Add("");
+                    item.SubItems.Add("");
+                }
+                item.SubItems.Add(track.FolderPath);
 
                 TrackLst.Items.Add(item);
             }
+
+            TrackLst.Columns[2].Width = -2;
+            TrackLst.Columns[3].Width = -2;
+            TrackLst.Columns[4].Width = -2;
 
             FilenameLbl.Text = Path.GetFileName(playlist.FilePath);
         }

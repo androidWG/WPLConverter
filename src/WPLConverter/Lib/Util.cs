@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using WPLConverter.DataClasses;
+using WPLConverter.Properties;
 
 namespace WPLConverter.Lib
 {
@@ -7,7 +8,7 @@ namespace WPLConverter.Lib
     {
         public static Encoding GetEncoding()
         {
-            var encoding = Properties.Settings.Default.Encoding;
+            var encoding = Settings.Default.Encoding;
 
             return encoding switch
             {
@@ -15,7 +16,7 @@ namespace WPLConverter.Lib
                 "UTF16" => Encoding.Unicode,
                 "UTF32" => Encoding.UTF32,
                 "ASCII" => Encoding.ASCII,
-                _ => Encoding.Default,
+                _ => Encoding.UTF8,
             };
         }
 
@@ -81,9 +82,12 @@ namespace WPLConverter.Lib
 
         public static string GetPath(string path, string directory = "")
         {
-            return Properties.Settings.Default.WriteFullPaths
-                ? path
-                : MakeRelativePath(directory, path);
+            return Settings.Default.WriteFullPaths ? path : MakeRelativePath(directory, path);
+        }
+
+        public static string CleanUpString(string input)
+        {
+            return input.TrimEnd('\0');
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using Id3;
 using WPLConverter.DataClasses;
 using WPLConverter.Lib;
 
@@ -17,8 +18,6 @@ public class M3UReaderWriter(Encoding encoding) : IReaderWriter
         var lines = File.ReadAllLines(filePath);
         var title = Path.GetFileNameWithoutExtension(filePath);
         var trackList = new List<Track>();
-
-        var invalidTracks = new List<string>();
 
         foreach (var line in lines)
         {
@@ -42,12 +41,13 @@ public class M3UReaderWriter(Encoding encoding) : IReaderWriter
                     Path.GetDirectoryName(filePath) ?? throw new InvalidOperationException()
                 );
                 var newPath = Path.GetFullPath(cleanedLine);
-                trackList.Add(new Track(newPath));
+                Id3Tag tag = ReadTag.GetInfo(newPath);
+                trackList.Add(new Track(tag, newPath));
             }
             catch (ArgumentException)
             {
                 Console.WriteLine($@"Path has invalid character: " + cleanedLine);
-                trackList.Add(new Track(cleanedLine));
+                trackList.Add(new Track(null, cleanedLine));
             }
         }
 
@@ -65,9 +65,14 @@ public class M3UReaderWriter(Encoding encoding) : IReaderWriter
 
         foreach (Track track in playlist.Tracks)
         {
-            if (Properties.Settings.Default.WriteFakeTrackInfo)
+            if (Properties.Settings.Default.WriteFakeTrackInfo && track.Tag == null)
             {
                 output.WriteLine($"#EXTINF:0,{Path.GetFileNameWithoutExtension(track.FileName)}");
+            }
+            else if (track.Tag != null)
+            {
+                var displayTitle = $"{track.Tag.Artists.ToString().TrimEnd('\0')} - {track.Tag.Title.ToString().TrimEnd('\0')}";
+                output.WriteLine($"#EXTINF:0,{displayTitle}");
             }
 
             var path = Util.GetPath(track.FullPath, Path.GetDirectoryName(filePath));

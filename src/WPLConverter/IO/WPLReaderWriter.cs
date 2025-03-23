@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.XPath;
+using Id3;
 using WPLConverter.DataClasses;
 using WPLConverter.Lib;
 
@@ -35,8 +36,8 @@ public class WPLReaderWriter(Encoding encoding) : IReaderWriter
                     Path.GetDirectoryName(filePath) ?? throw new InvalidOperationException()
                 );
                 var newPath = Path.GetFullPath(node.InnerText);
-
-                trackList.Add(new Track(newPath));
+                Id3Tag tag = ReadTag.GetInfo(newPath);
+                trackList.Add(new Track(tag, newPath));
             }
 
             return new Playlist(title, trackList, filePath);
