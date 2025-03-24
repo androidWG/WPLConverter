@@ -19,3 +19,7 @@ A few options can be chosen on the options menu, and explanations are provided w
 You'll need either any version of JetBrains Rider or Visual Studio **2019 or older.** Microsoft doesn't support loading .NET Framework v4.0 projects on Visual Studio 2022 and newer.
 
 Open the solution file and build the project by going to Build > Build Solution (default shortcut: `Ctrl + Shift + B`) or pressing the Build whole solution button in Rider.
+
+### Setup
+
+Inno Setup Compiler v5.5.8 is used for building. Simply build the solution on Release target, then run the `.iss` script located in the root folder with the compiler.
